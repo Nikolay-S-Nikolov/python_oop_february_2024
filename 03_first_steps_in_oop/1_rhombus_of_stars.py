@@ -2,8 +2,7 @@ n = int(input())
 
 
 def print_row(size, row):
-    print(' ' * (size - row), end='')
-    print('* ' * row)
+    print(' ' * (size - row), '* ' * row, sep='')
 
 
 def print_upper_part(size):
