@@ -10,14 +10,13 @@ class Library:
         self.rented_books: dict = {}
 
     def get_book(self, author: str, book_name: str, days_to_return: int, user: User) -> str:
-        if self.books_available.get(author, 0):
-            if book_name in self.books_available[author]:
-                self.books_available[author].remove(book_name)
-                if user.username not in self.rented_books:
-                    self.rented_books[user.username] = {}
-                self.rented_books[user.username][book_name] = days_to_return
-                user.books.append(book_name)
-                return f"{book_name} successfully rented for the next {days_to_return} days!"
+        if book_name in self.books_available.get(author):
+            self.books_available[author].remove(book_name)
+            if user.username not in self.rented_books:
+                self.rented_books[user.username] = {}
+            self.rented_books[user.username][book_name] = days_to_return
+            user.books.append(book_name)
+            return f"{book_name} successfully rented for the next {days_to_return} days!"
 
         return f'The book "{book_name}" is already rented and ' \
                f'will be available in {self.rented_books[user.username][book_name]} days!'
