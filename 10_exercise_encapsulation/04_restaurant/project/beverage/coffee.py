@@ -9,12 +9,8 @@ class Coffee(HotBeverage):
 
     def __init__(self, name: str, caffeine: float):
         Beverage.__init__(self, name, Coffee.PRICE, Coffee.MILLILITERS)
-        self.caffeine = caffeine
+        self.__caffeine = caffeine
 
     @property
     def caffeine(self):
         return self.__caffeine
-
-    @caffeine.setter
-    def caffeine(self, value):
-        self.__caffeine = value
