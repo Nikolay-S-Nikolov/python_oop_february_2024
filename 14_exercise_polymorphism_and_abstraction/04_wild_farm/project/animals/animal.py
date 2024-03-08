@@ -27,14 +27,10 @@ class Animal(ABC):
         return self.sound
 
     def feed(self, food):
-        return self.check_food_and_eat(self, food)
-
-    @staticmethod
-    def check_food_and_eat(animal, food):
-        if not isinstance(food, animal.type_of_food_eaten):
-            return f"{animal.__class__.__name__} does not eat {food.__class__.__name__}!"
-        animal.weight += animal.weight_gain * food.quantity
-        animal.food_eaten += food.quantity
+        if not isinstance(food, self.type_of_food_eaten):
+            return f"{self.__class__.__name__} does not eat {food.__class__.__name__}!"
+        self.weight += self.weight_gain * food.quantity
+        self.food_eaten += food.quantity
 
     @abstractmethod
     def __repr__(self):
