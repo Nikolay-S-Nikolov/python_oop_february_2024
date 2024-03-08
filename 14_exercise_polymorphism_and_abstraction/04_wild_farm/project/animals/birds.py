@@ -3,12 +3,30 @@ from project.food import Meat, Vegetable, Fruit, Food, Seed
 
 
 class Owl(Bird):
-    WEIGHT_INCREASE_WITH_FOOD_EATEN: float = 0.25
-    TYPE_OF_FOOD_EATEN: Food = Meat
-    SOUND = "Hoot Hoot"
+
+    @property
+    def sound(self):
+        return "Hoot Hoot"
+
+    @property
+    def type_of_food_eaten(self):
+        return Meat
+
+    @property
+    def weight_gain(self):
+        return 0.25
 
 
 class Hen(Bird):
-    WEIGHT_INCREASE_WITH_FOOD_EATEN: float = 0.35
-    TYPE_OF_FOOD_EATEN: Food = (Vegetable, Meat, Fruit, Seed)
-    SOUND = "Cluck"
+
+    @property
+    def sound(self):
+        return "Cluck"
+
+    @property
+    def type_of_food_eaten(self):
+        return Vegetable, Meat, Fruit, Seed
+
+    @property
+    def weight_gain(self):
+        return 0.35

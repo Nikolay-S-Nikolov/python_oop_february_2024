@@ -2,27 +2,38 @@ from abc import ABC, abstractmethod
 
 
 class Animal(ABC):
-    SOUND = ''
-    TYPE_OF_FOOD_EATEN = ''
-    WEIGHT_INCREASE_WITH_FOOD_EATEN = 0
 
     def __init__(self, name: str, weight: float):
         self.name = name
         self.weight = weight
         self.food_eaten = 0
 
-    @classmethod
-    def make_sound(cls):
-        return cls.SOUND
+    @property
+    @abstractmethod
+    def weight_gain(self):
+        ...
+
+    @property
+    @abstractmethod
+    def sound(self):
+        ...
+
+    @property
+    @abstractmethod
+    def type_of_food_eaten(self):
+        ...
+
+    def make_sound(self):
+        return self.sound
 
     def feed(self, food):
         return self.check_food_and_eat(self, food)
 
     @staticmethod
     def check_food_and_eat(animal, food):
-        if not isinstance(food, animal.TYPE_OF_FOOD_EATEN):
+        if not isinstance(food, animal.type_of_food_eaten):
             return f"{animal.__class__.__name__} does not eat {food.__class__.__name__}!"
-        animal.weight += animal.WEIGHT_INCREASE_WITH_FOOD_EATEN * food.quantity
+        animal.weight += animal.weight_gain * food.quantity
         animal.food_eaten += food.quantity
 
     @abstractmethod

@@ -3,24 +3,60 @@ from project.food import Vegetable, Meat, Fruit, Food
 
 
 class Mouse(Mammal):
-    WEIGHT_INCREASE_WITH_FOOD_EATEN: float = 0.10
-    TYPE_OF_FOOD_EATEN = (Vegetable, Fruit)
-    SOUND = "Squeak"
+
+    @property
+    def sound(self):
+        return "Squeak"
+
+    @property
+    def type_of_food_eaten(self):
+        return Vegetable, Fruit
+
+    @property
+    def weight_gain(self):
+        return 0.10
 
 
 class Dog(Mammal):
-    WEIGHT_INCREASE_WITH_FOOD_EATEN: float = 0.40
-    TYPE_OF_FOOD_EATEN = Meat
-    SOUND = "Woof!"
+
+    @property
+    def sound(self):
+        return "Woof!"
+
+    @property
+    def type_of_food_eaten(self):
+        return Meat
+
+    @property
+    def weight_gain(self):
+        return 0.40
 
 
 class Cat(Mammal):
-    WEIGHT_INCREASE_WITH_FOOD_EATEN: float = 0.30
-    TYPE_OF_FOOD_EATEN: Food = (Vegetable, Meat)
-    SOUND = "Meow"
+
+    @property
+    def sound(self):
+        return "Meow"
+
+    @property
+    def type_of_food_eaten(self):
+        return Vegetable, Meat
+
+    @property
+    def weight_gain(self):
+        return 0.30
 
 
 class Tiger(Mammal):
-    WEIGHT_INCREASE_WITH_FOOD_EATEN = 1.00
-    TYPE_OF_FOOD_EATEN: Food = Meat
-    SOUND = "ROAR!!!"
+
+    @property
+    def sound(self):
+        return "ROAR!!!"
+
+    @property
+    def type_of_food_eaten(self):
+        return Meat
+
+    @property
+    def weight_gain(self):
+        return 1.00
