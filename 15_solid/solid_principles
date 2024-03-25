@@ -1,0 +1,29 @@
+01. Single Responsibility Principle
+A class should have only one job.
+If a class has more than one responsibility, it becomes coupled.
+A change to one responsibility results to modification of the other responsibility.
+
+02. Open-Closed Principle
+Software entities(Classes, modules, functions) should be open for extension and closed
+for modification.
+OCP enables easy addition of new functionality without modifying existing code, leading to easier testing, code reuse,
+and adaptability to change. Overall, OCP is a key principle for achieving high-quality, scalable software solutions.
+
+03. Liskov Substitution Principle
+The Liskov substitution principle states that a child class must be substitutable for its parent class.
+Liskov substitution principle aims to ensure that the child class can assume the place of its parent class without
+causing any errors.
+Objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness
+of the program
+
+04. Interface Segregation Principle
+Classes should not be forced to implement interfaces they do not use.
+Make fine grained interfaces that are client-specific.
+
+05. Dependency Inversion Principle
+High-level modules should not import anything from low-level modules. Both should depend on abstractions (e.g., interfaces).
+Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
+The dependency inversion principle inverts this dependency in the sense that instead of higher level components
+depending on lower level ones, both should depend on abstractions. This abstraction layer would be an intermediate
+component that sits between the higher and lower level components. The two will then use this component to communicate
+and interact amongst each other. The abstraction component would usually be implemented as an interface.
